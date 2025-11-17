@@ -27,11 +27,8 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: typeset-document-pdf
-        path: document.pdf
+        path: Arash Attari.pdf
         
-    - name: Rename PDF to Final Publish Name
-      run: mv document.pdf Arash Attari.pdf
-      
     - name: Create Release
       uses: softprops/action-gh-release@v2
       if: startsWith(github.ref, 'refs/heads/main') # Only create release on main branch pushes
