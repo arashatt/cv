@@ -36,6 +36,6 @@ jobs:
         tag_name: release-${{ github.sha }}
         name: Build ${{ github.sha }}
         body: This release contains the compiled PDF artifact from the latest commit.
-        files: final_document.pdf
+        files: Arash Attari.pdf
         draft: false
         prerelease: false
