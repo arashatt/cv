@@ -7,10 +7,14 @@ on:
       - main # Run when changes are pushed to the 'main' branch
   workflow_dispatch: # Allows manual triggering from the GitHub UI
 
+
 jobs:
   build_pdf:
     runs-on: ubuntu-latest
-    
+    # Add permissions block to grant the GITHUB_TOKEN the ability to write contents (for releases)
+    permissions:
+      contents: write 
+      
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v4
