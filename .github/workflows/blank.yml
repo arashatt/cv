@@ -1,0 +1,44 @@
+name: Build LaTeX PDF
+
+# Define when this workflow runs
+on:
+  push:
+    branches:
+      - main # Run when changes are pushed to the 'main' branch
+  workflow_dispatch: # Allows manual triggering from the GitHub UI
+
+jobs:
+  build_pdf:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    # Use a pre-built Docker container that has a full TeX Live distribution
+    # This ensures XeLaTeX and necessary packages (fontspec, babel) are available.
+    - name: Compile LaTeX Document (Using XeLaTeX)
+      uses: xu-cheng/latex-action@v2
+      with:
+        root_file: Arash Attari.tex
+        compiler: xelatex
+
+    - name: Upload PDF Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: typeset-document-pdf
+        path: document.pdf
+        
+    - name: Rename PDF to Final Publish Name
+      run: mv document.pdf Arash Attari.pdf
+      
+    - name: Create Release
+      uses: softprops/action-gh-release@v2
+      if: startsWith(github.ref, 'refs/heads/main') # Only create release on main branch pushes
+      with:
+        tag_name: release-${{ github.sha }}
+        name: Build ${{ github.sha }}
+        body: This release contains the compiled PDF artifact from the latest commit.
+        files: final_document.pdf
+        draft: false
+        prerelease: false
