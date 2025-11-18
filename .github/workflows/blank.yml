@@ -13,33 +13,45 @@ jobs:
     runs-on: ubuntu-latest
     # Add permissions block to grant the GITHUB_TOKEN the ability to write contents (for releases)
     permissions:
-      contents: write 
-      
+      contents: write
+
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-    # Use a pre-built Docker container that has a full TeX Live distribution
-    # This ensures XeLaTeX and necessary packages (fontspec, babel) are available.
-    - name: Compile LaTeX Document (Using XeLaTeX)
-      uses: xu-cheng/latex-action@v2
-      with:
-        root_file: Arash Attari.tex
-        compiler: xelatex
+      # --- CACHING STEP ---
+      # This step caches the downloaded TeX Live distribution to speed up compilation on subsequent runs.
+      - name: Cache TeX Live Dependencies
+        uses: actions/cache@v4
+        with:
+          # This is the path where the TeX Live compiler is installed within the action
+          path: /usr/local/texlive/
+          # Key is based on OS and the hash of your main TeX file (to bust cache when packages change)
+          key: ${{ runner.os }}-texlive-${{ hashFiles('Arash Attari.tex') }}
+          restore-keys: |
+            ${{ runner.os }}-texlive-
 
-    - name: Upload PDF Artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: typeset-document-pdf
-        path: Arash Attari.pdf
-        
-    - name: Create Release
-      uses: softprops/action-gh-release@v2
-      if: startsWith(github.ref, 'refs/heads/main') # Only create release on main branch pushes
-      with:
-        tag_name: release-${{ github.sha }}
-        name: Build ${{ github.sha }}
-        body: This release contains the compiled PDF artifact from the latest commit.
-        files: Arash Attari.pdf
-        draft: false
-        prerelease: false
+      # Use a pre-built Docker container that has a full TeX Live distribution
+      # This ensures XeLaTeX and necessary packages (fontspec, babel) are available.
+      - name: Compile LaTeX Document (Using XeLaTeX)
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: Arash Attari.tex
+          compiler: xelatex
+
+      - name: Upload PDF Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: typeset-document-pdf
+          path: Arash Attari.pdf
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/heads/main') # Only create release on main branch pushes
+        with:
+          tag_name: release-${{ github.sha }}
+          name: Build ${{ github.sha }}
+          body: This release contains the compiled PDF artifact from the latest commit.
+          files: Arash Attari.pdf
+          draft: false
+          prerelease: false
