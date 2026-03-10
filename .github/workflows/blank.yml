@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - main # Run when changes are pushed to the 'main' branch
+      - Engineer
   workflow_dispatch: # Allows manual triggering from the GitHub UI
 
 
