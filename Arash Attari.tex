@@ -1,233 +1,495 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Freeman Curriculum Vitae
-% XeLaTeX Template
-% Version 3.0 (September 3, 2021)
-%
-% This template originates from:
-% https://www.LaTeXTemplates.com
-%
-% Authors:
-% Vel (vel@LaTeXTemplates.com)
-% Alessandro Plasmati
-%
-% License:
-% CC BY-NC-SA 4.0 (https://creativecommons.org/licenses/by-nc-sa/4.0/)
-%
-%!TEX program = xelatex
-% NOTE: this template must be compiled with XeLaTeX rather than PDFLaTeX
-% due to the custom fonts used. The line above should ensure this happens
-% automatically, but if it doesn't, your LaTeX editor should have a simple toggle
-% to switch to using XeLaTeX.
-% 
+% German ATS Test Version (Fictional Data)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%----------------------------------------------------------------------------------------
-%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
-%----------------------------------------------------------------------------------------
-
-
 \documentclass[
-10pt, % Default font size, can be between 8pt and 12pt
+10pt,
 ]{FreemanCV}
+
 \usepackage{tikz}
 \usepackage{graphicx}
-\columnratio{0.55, 0.45} % Widths of the two columns, specified here as a ratio summing to 1 to correspond to percentages; adjust as needed for your content 
 
-% Headers and footers can be added with the following commands: \lhead{}, \rhead{}, \lfoot{} and \rfoot{}
-% Example right footer:
-%\rfoot{\textcolor{headings}{\sffamily Last update: \today. Typeset with Xe\LaTeX}}
+\columnratio{0.55,0.45}
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+% NAME AND TITLE
+%----------------------------------------------------------------------------------------
+
+\parbox[][0.13\textheight][c]{\linewidth}{
+	\centering
+	\begin{minipage}[c]{0.72\linewidth}
+		\centering
+		{\sffamily\Huge Lukas Schneider}\\[6pt]
+		{\cursivefont\Huge\textcolor{headings}{Lebenslauf}}
+	\end{minipage}
+}
+
+%----------------------------------------------------------------------------------------
+% CONTACT DETAILS
+%----------------------------------------------------------------------------------------
+
+\parbox[top][0.11\textheight][c]{\linewidth}{
+	\colorbox{shade}{
+		\begin{supertabular}{@{\hspace{3pt}} p{0.05\linewidth} | p{0.775\linewidth}}
+
+		\raisebox{-1pt}{\faHome} &
+		Musterstraße 42, 40210 Düsseldorf, Deutschland \\
+
+		\raisebox{-1pt}{\faPhone} &
+		+49 211 12345678 \\
+
+		\raisebox{-1pt}{\small\faEnvelope} &
+		\href{mailto:lukas.schneider@example.de}
+		{lukas.schneider@example.de} \\
+
+		\raisebox{-1pt}{\faGithub} &
+		\href{https://github.com/lukas-schneider}
+		{github.com/lukas-schneider}
+
+		\end{supertabular}
+	}
+	\vfill
+}
+
+
+%----------------------------------------------------------------------------------------
+% EDUCATION
+%----------------------------------------------------------------------------------------
+
+\section{Ausbildung}
+
+\begin{supertabular}{r l}
+
+\qualificationentry
+{2019 -- 2023}
+{Bachelor Informatik}
+{Tutor für die Lehrveranstaltungen "Betriebssysteme" und "Signalverarbeitung"}
+{Fachbereich Informatik}
+{Technische Universität Düsseldorf}
+
+\end{supertabular}
+
+
+%----------------------------------------------------------------------------------------
+% WORK EXPERIENCE
+%----------------------------------------------------------------------------------------
+
+\section{Berufserfahrung}
+
+
+\jobentry
+{Juli 2024 -- Heute}
+{VZ}
+{RheinTech Hosting GmbH, Düsseldorf}
+{System Operations Engineer}
+
+{Administration und Überwachung von Linux-Servern in produktiven Hosting-Umgebungen.
+Erstellung technischer Berichte zur Systemverfügbarkeit.
+Installation, Konfiguration und Wartung von Serverdiensten.
+Verwaltung virtueller Maschinen.
+Zusammenarbeit mit dem Technical Operations Center und Support-Teams zur Lösung kritischer Incidents.
+Durchführung strukturierter Fehleranalysen unter Zeitdruck.}
+
+
+\jobentry
+{August 2023 -- Juli 2024}
+{VZ}
+{RheinTech Hosting GmbH, Düsseldorf}
+{Network Support Engineer}
+
+{Analyse und Behebung von Netzwerkproblemen.
+Durchführung von DNS-Prüfungen und Infrastrukturdiagnosen.
+Administration von cPanel- und DirectAdmin-Systemen.
+Linux-Systemadministration und technische Kundenunterstützung.
+Bearbeitung von Supportfällen unter Einhaltung definierter SLA-Ziele.}
+
+
+\jobentry
+{Januar 2021 -- Januar 2022}
+{VZ}
+{Language Center Düsseldorf}
+{Englischlehrer}
+
+{Unterricht von Englisch für Jugendliche und Erwachsene.
+Entwicklung interaktiver Lernmaterialien.
+Planung und Durchführung von Sprachkursen.}
+
+
+\jobentry
+{September 2022}
+{TZ}
+{SoftSolutions GmbH}
+{Softwareentwickler Praktikant}
+
+{Entwicklung automatisierter Webtests mit Selenium und Python.
+Analyse von Benutzeroberflächen und Unterstützung bei Qualitätssicherungsprozessen.}
+%----------------------------------------------------------------------------------------
+% COMPUTER SKILLS
+%----------------------------------------------------------------------------------------
+
+\section{IT-Kenntnisse}
+
+\begin{supertabular}{r l}
+
+\tableentry{Experte}{Linux-Systemadministration}{spaceafter}
+
+\tableentry{Experte}{Git Versionsverwaltung}{spaceafter}
+
+\tableentry{Experte}{Rust Programmierung}{spaceafter}
+
+\tableentry{Experte}{JavaScript / TypeScript}{spaceafter}
+
+\tableentry{Fortgeschritten}{Python}{spaceafter}
+
+\tableentry{Fortgeschritten}{Docker und Docker Compose}{spaceafter}
+
+\tableentry{Fortgeschritten}{Django / Flask Webentwicklung}{spaceafter}
+
+\tableentry{Fortgeschritten}{LaTeX und wissenschaftliches Publizieren}{spaceafter}
+
+\end{supertabular}
+
+
+%----------------------------------------------------------------------------------------
+% PROJECTS
+%----------------------------------------------------------------------------------------
+
+\section{Projekte}
+
+
+\subsection{\href{https://github.com/lukas-schneider/wifi-scan}
+{ESP32 WLAN-Scanner -- Rust}}
+
+Entwicklung eines leichtgewichtigen Webservers für den ESP32-Mikrocontroller.
+Das System erkennt verfügbare WLAN-Netzwerke und stellt die Ergebnisse über eine
+Weboberfläche dar.
+Implementierung mit Rust für sichere Speicherverwaltung und effiziente Ausführung
+auf eingebetteten Systemen.
+
+
+\subsection{\href{https://github.com/lukas-schneider/rssh}
+{SSH-Verwaltungstool -- Systemprogrammierung mit Rust}}
+
+Entwicklung eines sicheren Kommandozeilenwerkzeugs zur Verwaltung von
+SSH-Konfigurationen.
+
+Das Tool nutzt Rust für hohe Performance und Speichersicherheit.
+Es wird innerhalb der internen Support-Infrastruktur von RheinTech Hosting GmbH
+eingesetzt und ersetzt eine ältere Lösung.
+
+Durch Optimierung der Verarbeitung konnte eine Verzögerung von mehreren Sekunden
+beim Zugriff auf Server entfernt werden.
+
+
+\subsection{\href{https://github.com/lukas-schneider/digikala-scan}
+{Web Scraper -- Node.js}}
+
+Entwicklung eines automatisierten Datenextraktionssystems mit Node.js und
+Puppeteer.
+
+Erfassung und Verarbeitung von Produktinformationen aus webbasierten Plattformen
+sowie Automatisierung wiederkehrender Datensammlungsprozesse.
+
+
+\subsection{\href{https://github.com/lukas-schneider/cat}
+{Cat Mimic -- C Programmierung}}
+
+Implementierung eines Unix-\texttt{cat}-ähnlichen Kommandozeilenwerkzeugs.
+
+Das Programm liest Dateien blockweise und ermöglicht die Verarbeitung großer
+Dateien ohne unnötigen Speicherverbrauch.
+
+
+\subsection{\href{https://github.com/lukas-schneider/typsy}
+{typeset.live -- React und WebAssembly}}
+
+Entwicklung einer webbasierten Plattform zur Erstellung wissenschaftlicher
+Dokumente.
+
+Implementierung eines Live-Editors mit Echtzeit-Vorschau, automatischer
+Dokumentverarbeitung und direktem PDF-Export.
+
+Die Anwendung unterstützt Studierende bei der effizienten Erstellung und
+Formatierung professioneller Dokumente.
+
+
+\subsection{\href{https://github.com/lukas-schneider/curltrace}
+{curltrace -- eBPF / BPFtrace}}
+
+Entwicklung eines produktionsfähigen Monitoring-Werkzeugs auf Basis von eBPF
+und BPFtrace.
+
+Das Tool wird zur Überwachung ausgehender HTTP-Anfragen auf einer Hosting-Plattform
+mit mehr als 60.000 WordPress-Installationen eingesetzt.
+
+Anwendungsbereiche:
+\begin{itemize}
+	\item Netzwerkdiagnose
+	\item Sicherheitsanalyse
+	\item Performance-Optimierung
+	\item Fehleranalyse in Produktionsumgebungen
+\end{itemize}
+
+
+\subsection{\href{https://github.com/lukas-schneider/tourism-nextjs}
+{Tourismus-Webanwendung -- Next.js}}
+
+Entwicklung einer Full-Stack-Webanwendung mit Next.js und Prisma.
+
+\begin{itemize}
+	\item Entwicklung dynamischer Städte- und Tourangebote.
+	\item Implementierung von Buchungsabläufen.
+	\item Nutzung von TypeScript und Tailwind CSS für moderne Webentwicklung.
+\end{itemize}
+
+
+\subsection{\href{https://github.com/lukas-schneider/Dictionary-maker}
+{Dictionary Maker -- Python}}
+
+Entwicklung eines Programms zur automatischen Erstellung von Glossaren aus
+Vokabellisten.
+
+Das Projekt entstand aus dem Interesse an Sprachverarbeitung und unterstützt
+die strukturierte Aufbereitung von Lernmaterialien.
+
+
+\subsection{\href{https://github.com/lukas-schneider/my-vocab-list}
+{My Vocab List -- Java Desktop-Anwendung}}
+
+Entwicklung einer Desktop-Anwendung zur Verwaltung persönlicher Vokabellisten.
+
+Integration direkter Links zu Online-Wörterbüchern und Unterstützung beim
+Sprachlernen.
+
+
+\subsection{\href{https://github.com/lukas-schneider/retrieval-system}
+{Information Retrieval System -- Python}}
+
+Implementierung eines Dokumenten-Suchsystems auf Basis des TF-IDF-Algorithmus.
+
+Umsetzung von Indexierung, Dokumentbewertung und effizienter Textsuche.
+%----------------------------------------------------------------------------------------
+% SKILLS
+%----------------------------------------------------------------------------------------
+
+\section{Fachkenntnisse}
+
+
+\subsection{Zertifikate}
+
+VITTCO Lehrzertifikat, Language Center Düsseldorf.
+
 
 %----------------------------------------------------------------------------------------
 
-\begin{document}
-	
-	
-	%----------------------------------------------------------------------------------------
-	%	YOUR NAME AND CURRICULUM VITAE TITLE
-	%----------------------------------------------------------------------------------------
-	
-	% Load TikZ (if not already loaded)
-	
-	
-	% -------------------
-	% Name + Résumé Title + Profile Photo
-	% -------------------
-	\parbox[][0.13\textheight][c]{\linewidth}{
-		\centering
-		\begin{minipage}[c]{0.72\linewidth}
-			\centering
-			{\sffamily\Huge YOUR NAME}\\[6pt]
-			{\cursivefont\Huge\textcolor{headings}{curriculum vitae}}
-		\end{minipage}%
-		\hfill
+\subsection{Git und Versionsverwaltung}
 
-	}
-	
-	
-	
-	%----------------------------------------------------------------------------------------
-	%	COLORED CONTACT DETAILS BOX
-	%----------------------------------------------------------------------------------------
-	
-	\parbox[top][0.11\textheight][c]{\linewidth}{ % Box to hold the colored box; change the fixed height as needed to match the box to the left
-		\colorbox{shade}{ % Create colored box and specify background color
-			\begin{supertabular}{@{\hspace{3pt}} p{0.05\linewidth} | p{0.775\linewidth}} % Start a table with two columns, the table will ensure everything is aligned
-				\raisebox{-1pt}{\faHome} &YOUR ADDRESS\\ % Address
-				\raisebox{-1pt}{\faPhone} & +49 XXX XXX XXXX \\ % Phone number
-				\raisebox{-1pt}{\small\faEnvelope} & \href{mailto:your.name@example.com}{your.name@example.com} \\ % Email address
-				%\raisebox{-1pt}{\small\faDesktop} & \href{https://www.LaTeXTemplates.com}{https://www.LaTeXTempalates.com} \\ % Website
-				\raisebox{-1pt}{\faGithub} & \href{https://github.com/yourusername}{https://github.com/yourusername} \\ % GitHub profile
-				%\raisebox{-1pt}{\faLinkedinSquare} & \href{https://www.linkedin.com/in/username}{https://www.linkedin.com/in/username} \\ % LinkedIn profile
-				% See fontawesome.pdf in the Fonts folder for all icons you can use
-			\end{supertabular}
-		}
-		\vfill % Push content to the top of the box
-	}
-	
-	%----------------------------------------------------------------------------------------
-	%	MAJOR RESEARCH PROJECT
-	%----------------------------------------------------------------------------------------
-	
-	
-	%----------------------------------------------------------------------------------------
-	\section{Education}
-	
-	\begin{supertabular}{r l}
-		\qualificationentry
-		{2019 -- 2023}
-		{Bachelor of Computer Engineering}
-		{Teaching Assistant for "Operating Systems" and "Signals and Systems"}
-		{Department of Computer Engineering and IT}
-		{Example University}
-	\end{supertabular}
-	
-	%----------------------------------------------------------------------------------------
-	\section{Work Experience}
-	
-	\jobentry
-	{Jul 2024 – Present}
-	{FT}
-	{ExampleTech GmbH (limoo.host)}
-	{System Operations Engineer}
-	{Monitoring servers using Grafana; preparing technical reports; maintaining server availability; installing and configuring systems; managing virtual machines. Collaborated closely with the T.O.C and Support teams to resolve critical incidents under time constraints, where rapid diagnosis and clear communication were essential.}
-	
-	\jobentry
-	{Aug 2023 – Jul 2024}
-	{FT}
-	{ExampleTech GmbH (limoo.host)}
-	{Network Support Engineer}
-	{Troubleshooting network issues; performing DNS checks (intoDNS, Check-Host); administering systems via cPanel and DirectAdmin; general system administration. Worked within a fast-paced support team where collaborative troubleshooting and meeting SLA deadlines were central to daily operations.}
-	
-	\jobentry
-	{Jan 2021 – Jan 2022}
-	{FT}
-	{Example Language Institute}
-	{English Teacher}
-	{Teaching English to young adults and children; designing engaging language-learning activities.}
-	
-	\jobentry
-	{Sep 2022}
-	{PT}
-	{Example Software GmbH}
-	{Programmer (Internship)}
-	{Worked under Internship Supervisor to test a website interface using Selenium, a Python-based browser automation framework.}
-	
-	%----------------------------------------------------------------------------------------
-	
-	
-	\section{Computer Skills}
-	
-	\begin{supertabular}{r l}
-		\tableentry{Expert}{Rust}{spaceafter}
-		\tableentry{Intermediate}{Python}{spaceafter}
-		\tableentry{Intermediate}{Selenium, Flask, Django}{spaceafter}
-		\tableentry{Intermediate}{Latex}{spaceafter}
-		\tableentry{Expert}{Git}{spaceafter}
-		\tableentry{Expert}{Linux}{spaceafter}
-		\tableentry{Expert}{JavaScript}{spaceafter}
-	\end{supertabular}
-	
-	%----------------------------------------------------------------------------------------
-	\section{Projects}
-	
-	\subsection{\href{https://github.com/yourusername/wifi-scan}{ESP32 WiFi Scanning – Rust}}
-	A lightweight web server that displays nearby WiFi signals on a single webpage. Designed for the ESP32 microcontroller and implemented in Rust.
+Erfahrung mit dem gesamten Git-Entwicklungsprozess von der Initialisierung bis
+zum produktiven Deployment.
 
-\subsection{\href{https://github.com/yourusername/rssh}{SSH Management Tool – Systems Programming with Rust}}
-A secure and highly performant command-line and server management tool utilizing \textbf{Rust}'s system-level control and memory safety features. This project is currently used by the internal Support team of \href{https://limoo.host}{ExampleTech GmbH} to manage SSH configurations defined in \texttt{~/.ssh/config}. The new tool replaced a former one, bringing the significant advantage of \textbf{ eliminating a four-second latency} when accessing servers.
+Fundierte Kenntnisse in:
 
-	
-	\subsection{\href{https://github.com/yourusername/digikala-scan}{Digikala Web Scraper – Node.js}}
-	A data extraction tool built with Node.js and Puppeteer to collect product information from digikala.com.
-	
-	\subsection{\href{https://github.com/yourusername/cat}{Cat Mimic – C}}
-	A file-reading utility inspired by the Unix \texttt{cat} command. It reads files in manageable chunks to handle large datasets without memory issues.
-	
-	\subsection{\href{https://github.com/yourusername/typsy}{typeset.live – React WebAssembly}}
-	I created this web application to assist students with document preparation. It features a \textbf{live editor} with \textbf{real-time preview capabilities}, enabling quick edits and reliable output saving directly to \textbf{PDF format}.
-	
-	
-	\subsection{\href{https://github.com/yourusername/curltrace}{curltrace – Python BPFtrace}}
-	A production-grade BPFtrace tool used by the LimooHost T.O.C team to monitor outgoing \texttt{curl} requests on over 60,000 WordPress sites. Aids in debugging network and security issues.
-	
-	\subsection{\href{https://github.com/yourusername/tourism-nextjs}{Tourism App – Next.js}}
-	\begin{itemize}
-		\item Developed a full-stack tourism web application using Next.js and Prisma.
-		\item Implemented dynamic city and tour listings with booking workflows.
-		\item Utilized TypeScript and Tailwind CSS for type safety and responsive design.
-	\end{itemize}
-	
-	\subsection{\href{https://github.com/yourusername/Dictionary-maker}{Dictionary Maker – Python}}
-	Inspired by reading James Joyce's *Ulysses*, this program generates glossaries from lists of vocabulary items. A Persian description and examples are provided in the repository.
-	
-	\subsection{\href{https://github.com/yourusername/my-vocab-list}{My Vocab List – Java GUI}}
-	A desktop application for storing and organizing vocabulary lists, providing direct links to definitions in online dictionaries.
-	
-	\subsection{\href{https://github.com/yourusername/retrieval-system}{Information Retrieval System – Python}}
-	A document indexing and search system implementing the TF–IDF algorithm for efficient text retrieval and ranking.
-	
-	%----------------------------------------------------------------------------------------
-	\section{Skills}
-	
-	\subsection{Certificates}
-	VITTCO Teaching Certificate, Example Language Institute.
-	
-	\subsection{Git}
-	Experienced in the full Git lifecycle, managing codebases from initialization to deployment. My expertise includes advanced commands for \textbf{branching, merging, rebasing, and conflict resolution}, alongside the practical application of Git Flow/GitHub Flow strategies. I use \href{https://github.com/yourusername}{\textbf{GitHub}} as the primary platform for collaboration, code review, and maintaining a transparent record of all feature development and bug fixes.
-	
-	\subsection{Control Panels \& Mail Stack}
-	Hands-on experience administering servers via \textbf{cPanel} and \textbf{DirectAdmin}, including account management, DNS zone editing, and resource configuration. Proficient in configuring and troubleshooting the full mail stack: \textbf{Exim} (routing rules, transport configuration, mail queue management) and \textbf{Dovecot} (IMAP/POP3 setup, mailbox permissions, delivery issues).
+\begin{itemize}
+	\item Branching-Strategien
+	\item Merge- und Rebase-Prozessen
+	\item Konfliktlösung
+	\item Git Flow und GitHub Flow
+	\item Code Review und kollaborativer Softwareentwicklung
+\end{itemize}
 
-	\subsection{Security Hardening}
-	Experienced in hardening Linux servers in production environments:
-	\begin{itemize}
-		\item \textbf{Fail2ban}, \textbf{CSF} (ConfigServer Security \& Firewall), and \textbf{LFD} for intrusion detection and automated IP blocking.
-		\item \textbf{SSH hardening}: key-based authentication, disabling root login, port changes, and \texttt{sshd\_config} tuning.
-		\item Applied these practices across shared hosting infrastructure serving tens of thousands of sites.
-	\end{itemize}
+Nutzung von GitHub zur Zusammenarbeit im Team, Verwaltung von Quellcode sowie
+Dokumentation von Änderungen und Fehlerbehebungen.
 
-	\subsection{eBPF \& Performance Profiling}
-	Practical experience writing and deploying \textbf{eBPF} programs for low-level kernel observability. Skilled in generating and interpreting \textbf{Flame Graphs} for CPU and off-CPU profiling. Used \textbf{Xdebug} for PHP application profiling to identify bottlenecks in WordPress and custom web applications.
 
-	\subsection{WordPress Troubleshooting}
-	Extensive experience diagnosing and resolving WordPress issues at scale, supporting over 60,000 sites hosted on ExampleTech GmbH infrastructure. Proficient in debugging plugin conflicts, database performance issues, malware detection, \texttt{.htaccess} misconfigurations, and PHP fatal errors. Familiar with WP-CLI for efficient server-side management.
+%----------------------------------------------------------------------------------------
 
-	\subsection{Teamwork \& Incident Response}
-	Thrive in collaborative, high-pressure environments where problems must be diagnosed and resolved quickly. At ExampleTech GmbH, worked closely with cross-functional T.O.C, Support, and engineering teams to handle incidents affecting large numbers of customers simultaneously. Developed strong habits around clear communication, structured handoffs, and post-incident documentation to ensure collective learning and faster future resolution.
+\subsection{Serveradministration, Hosting und Mail-Systeme}
 
-	\subsection{Django}
-	Developed multiple projects using the Django web framework.
-	\begin{itemize}
-		\item Experienced with the MTV architecture.
-		\item Skilled in Django ORM, custom user models, and template design.
-		\item Deployed a Django project on \href{https://example.com/}{Liara}.
-	\end{itemize}
-	
-	\subsection{Docker}
-	Gained proficiency in Docker and Docker Compose during the Bachelor's final project. Familiar with containerizing single and multi-service applications.
-	
-	\subsection{Information Retrieval}
-	Implemented an IR system using the TF–IDF algorithm during academic research. Knowledgeable in data mining and information retrieval techniques.
-	
-	
+Praktische Erfahrung in der Administration von Linux-basierten Hosting-
+Infrastrukturen mit cPanel und DirectAdmin.
+
+Kenntnisse in:
+
+\begin{itemize}
+	\item Verwaltung von Hosting-Accounts
+	\item DNS-Konfiguration und Fehleranalyse
+	\item Server-Ressourcenverwaltung
+	\item Exim Mailserver-Konfiguration
+	\item Dovecot IMAP/POP3 Administration
+	\item Analyse von Zustellungsproblemen und Mail-Queues
+\end{itemize}
+
+
+%----------------------------------------------------------------------------------------
+
+\subsection{Linux-Systemadministration und IT-Sicherheit}
+
+Erfahrung mit der Absicherung produktiver Linux-Server:
+
+\begin{itemize}
+	\item Konfiguration und Optimierung von SSH-Zugängen
+	\item Schlüsselbasierte Authentifizierung
+	\item Absicherung von Root-Zugriffen
+	\item Anpassung von SSH-Konfigurationen
+	\item Einsatz von Fail2ban
+	\item Verwaltung mit CSF (ConfigServer Security \& Firewall)
+	\item Nutzung von LFD zur Angriffserkennung
+\end{itemize}
+
+Umsetzung von Sicherheitsmaßnahmen in einer Hosting-Umgebung mit mehreren
+zehntausend Webseiten.
+
+
+%----------------------------------------------------------------------------------------
+
+\subsection{eBPF, Performance-Analyse und Monitoring}
+
+Praktische Erfahrung mit moderner Linux-Systemanalyse und Kernel-Observability.
+
+Kenntnisse in:
+
+\begin{itemize}
+	\item Entwicklung von eBPF-basierten Monitoring-Werkzeugen
+	\item Analyse von Systemaufrufen und Netzwerkaktivitäten
+	\item Erstellung und Interpretation von Flame Graphs
+	\item CPU- und Off-CPU-Profiling
+	\item PHP-Anwendungsanalyse mit Xdebug
+\end{itemize}
+
+Einsatz dieser Technologien zur Identifikation von Performance-Problemen in
+WordPress-Anwendungen und produktiven Websystemen.
+
+
+%----------------------------------------------------------------------------------------
+
+\subsection{WordPress Administration und Fehleranalyse}
+
+Umfangreiche Erfahrung bei der Analyse und Lösung komplexer WordPress-Probleme
+in einer Hosting-Umgebung mit über 60.000 Webseiten.
+
+Schwerpunkte:
+
+\begin{itemize}
+	\item Plugin- und Theme-Konflikte
+	\item Datenbankoptimierung
+	\item PHP-Fehleranalyse
+	\item Malware-Erkennung
+	\item Analyse von .htaccess-Konfigurationen
+	\item Performance-Optimierung
+	\item Nutzung von WP-CLI
+\end{itemize}
+
+
+%----------------------------------------------------------------------------------------
+
+\subsection{Incident Management und Teamarbeit}
+
+Erfahrung in dynamischen Produktionsumgebungen mit hohen Anforderungen an
+Verfügbarkeit und schnelle Problemlösung.
+
+Zusammenarbeit mit verschiedenen Teams:
+
+\begin{itemize}
+	\item Technical Operations Center (T.O.C.)
+	\item Support-Team
+	\item Entwicklungsteams
+\end{itemize}
+
+Schwerpunkte:
+
+\begin{itemize}
+	\item strukturierte Fehleranalyse
+	\item technische Kommunikation
+	\item Priorisierung kritischer Störungen
+	\item Erstellung von Incident Reports
+	\item kontinuierliche Verbesserung von Prozessen
+\end{itemize}
+%----------------------------------------------------------------------------------------
+
+\subsection{Django Webentwicklung}
+
+Erfahrung in der Entwicklung mehrerer Projekte mit dem Django Webframework.
+
+Kenntnisse:
+
+\begin{itemize}
+	\item Django MTV-Architektur
+	\item Django ORM
+	\item Entwicklung eigener User-Modelle
+	\item Template-Entwicklung
+	\item Deployment von Django-Anwendungen
+\end{itemize}
+
+Bereitstellung eines Django-Projekts auf einer Cloud-Hosting-Plattform.
+
+
+%----------------------------------------------------------------------------------------
+
+\subsection{Docker und Containerisierung}
+
+Praktische Erfahrung mit Docker und Docker Compose.
+
+Kenntnisse in:
+
+\begin{itemize}
+	\item Erstellung und Verwaltung von Docker-Containern
+	\item Containerisierung von Einzel- und Multi-Service-Anwendungen
+	\item Aufbau reproduzierbarer Entwicklungsumgebungen
+	\item Verwaltung containerbasierter Anwendungen
+\end{itemize}
+
+
+%----------------------------------------------------------------------------------------
+
+\subsection{Information Retrieval und Datenverarbeitung}
+
+Implementierung eines Information-Retrieval-Systems mit dem TF-IDF-Algorithmus.
+
+Kenntnisse in:
+
+\begin{itemize}
+	\item Dokumentenindexierung
+	\item Textanalyse
+	\item Suchalgorithmen
+	\item Ranking von Suchergebnissen
+	\item Grundlagen von Data Mining
+\end{itemize}
+
+
+%----------------------------------------------------------------------------------------
+
+\section{Sprachen}
+
+\begin{supertabular}{r l}
+
+\tableentry{Muttersprache}{Persisch}{spaceafter}
+
+\tableentry{Fließend}{Englisch}{spaceafter}
+
+\tableentry{Fortgeschritten}{Deutsch}{spaceafter}
+
+\end{supertabular}
+
+
+%----------------------------------------------------------------------------------------
+
+\section{Zusätzliche Informationen}
+
+\begin{itemize}
+
+\item Erfahrung mit produktiven Linux-Serverumgebungen und Hosting-Infrastrukturen.
+
+\item Sicherer Umgang mit Kommandozeilenwerkzeugen und Linux-Diagnose-Tools.
+
+\item Erfahrung mit Netzwerkdiensten, DNS, HTTP, SMTP, IMAP und Servermonitoring.
+
+\item Interesse an Systemprogrammierung, Cloud-Infrastruktur,
+  Performance-Engineering und moderner Webentwicklung.
+
+\end{itemize}
+
+
 \end{document}
