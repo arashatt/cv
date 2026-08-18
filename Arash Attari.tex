@@ -18,7 +18,7 @@
 % due to the custom fonts used. The line above should ensure this happens
 % automatically, but if it doesn't, your LaTeX editor should have a simple toggle
 % to switch to using XeLaTeX.
-% 
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %----------------------------------------------------------------------------------------
@@ -31,7 +31,7 @@
 ]{FreemanCV}
 \usepackage{tikz}
 \usepackage{graphicx}
-\columnratio{0.55, 0.45} % Widths of the two columns, specified here as a ratio summing to 1 to correspond to percentages; adjust as needed for your content 
+\columnratio{0.55, 0.45} % Widths of the two columns, specified here as a ratio summing to 1 to correspond to percentages; adjust as needed for your content
 
 % Headers and footers can be added with the following commands: \lhead{}, \rhead{}, \lfoot{} and \rfoot{}
 % Example right footer:
@@ -40,15 +40,15 @@
 %----------------------------------------------------------------------------------------
 
 \begin{document}
-	
-	
+
+
 	%----------------------------------------------------------------------------------------
 	%	YOUR NAME AND CURRICULUM VITAE TITLE
 	%----------------------------------------------------------------------------------------
-	
+
 	% Load TikZ (if not already loaded)
-	
-	
+
+
 	% -------------------
 	% Name + Résumé Title + Profile Photo
 	% -------------------
@@ -68,17 +68,17 @@
 			}
 		\end{minipage}
 	}
-	
-	
-	
+
+
+
 	%----------------------------------------------------------------------------------------
 	%	COLORED CONTACT DETAILS BOX
 	%----------------------------------------------------------------------------------------
-	
+
 	\parbox[top][0.11\textheight][c]{\linewidth}{ % Box to hold the colored box; change the fixed height as needed to match the box to the left
 		\colorbox{shade}{ % Create colored box and specify background color
 			\begin{supertabular}{@{\hspace{3pt}} p{0.05\linewidth} | p{0.775\linewidth}} % Start a table with two columns, the table will ensure everything is aligned
-				\raisebox{-1pt}{\faHome} &48, Rahmaniye, Mashhad, Iran\\ % Address
+				\raisebox{-1pt}{\faGlobe} & Remote / Available for remote work \\ % Remote availability instead of a physical address
 				\raisebox{-1pt}{\faPhone} & +98 915-71-888-94 \\ % Phone number
 				\raisebox{-1pt}{\small\faEnvelope} & \href{mailto:attariarash@gmail.com}{attariarash@gmail.com} \\ % Email address
 				%\raisebox{-1pt}{\small\faDesktop} & \href{https://www.LaTeXTemplates.com}{https://www.LaTeXTempalates.com} \\ % Website
@@ -89,15 +89,15 @@
 		}
 		\vfill % Push content to the top of the box
 	}
-	
+
 	%----------------------------------------------------------------------------------------
 	%	MAJOR RESEARCH PROJECT
 	%----------------------------------------------------------------------------------------
-	
-	
+
+
 	%----------------------------------------------------------------------------------------
 	\section{Education}
-	
+
 	\begin{supertabular}{r l}
 		\qualificationentry
 		{2019 -- 2023}
@@ -106,103 +106,87 @@
 		{Department of Computer Engineering and IT}
 		{Shahrood University of Technology}
 	\end{supertabular}
-	
+
 	%----------------------------------------------------------------------------------------
 	\section{Work Experience}
-	
+
 	\jobentry
-	{Jul 2024 – Present}
+	{Jul 2024 -- Present}
 	{FT}
 	{Limoo Host (limoo.host)}
 	{System Operations Engineer}
-	{Monitoring servers using Grafana; preparing technical reports; maintaining server availability; installing and configuring systems; managing virtual machines.}
-	
+	{Advanced cPanel/WHM and DirectAdmin server administration (UI and CLI) across the hosting estate; incident response including full reconstruction of a live cPanel/WHM server compromise (malicious plugin dropper, backdoor WHM account, modified SSH config) from logs and config files; troubleshooting LiteSpeed, PHP-FPM, MariaDB, and Exim issues; email deliverability work (SPF, DKIM, DMARC) and outbound mail authentication rebuilds; monitoring server health with Grafana; managing CloudLinux and Imunify360 security tooling; writing technical reports and documentation.}
+
 	\jobentry
-	{Aug 2023 – Jul 2024}
+	{Aug 2023 -- Jul 2024}
 	{FT}
 	{Limoo Host (limoo.host)}
 	{Network Support Engineer}
-	{Troubleshooting network issues; performing DNS checks (intoDNS, Check-Host); administering systems via cPanel and DirectAdmin; general system administration.}
-	
-	\jobentry
-	{Jan 2021 – Jan 2022}
-	{FT}
-	{Safir Language Academy}
-	{English Teacher}
-	{Teaching English to young adults and children; designing engaging language-learning activities.}
-	
-	\jobentry
-	{Sep 2022}
-	{PT}
-	{APA}
-	{Programmer (Internship)}
-	{Worked under Dr. Rezvani to test a website interface using Selenium, a Python-based browser automation framework.}
-	
+	{Resolved customer-facing technical issues via support tickets for a large-scale cPanel/DirectAdmin hosting estate; diagnosed and fixed WordPress, PHP application, and email delivery errors from logs rather than guesswork; DNS troubleshooting and validation (intoDNS, Check-Host); day-to-day cPanel/WHM and DirectAdmin system administration; clear written communication with non-technical customers under time pressure.}
+
 	%----------------------------------------------------------------------------------------
-	
-	
+
+
 	\section{Computer Skills}
-	
+
 	\begin{supertabular}{r l}
+		\tableentry{Expert}{cPanel/WHM \& DirectAdmin Administration}{spaceafter}
+		\tableentry{Expert}{Linux (SSH, CLI, log \& config troubleshooting)}{spaceafter}
+		\tableentry{Advanced}{LiteSpeed, Apache, Nginx, PHP-FPM}{spaceafter}
+		\tableentry{Advanced}{CloudLinux, Imunify360, CSF, ModSecurity}{spaceafter}
+		\tableentry{Advanced}{Email Deliverability (SPF/DKIM/DMARC, Exim, MailChannels)}{spaceafter}
 		\tableentry{Expert}{Rust}{spaceafter}
 		\tableentry{Intermediate}{Python}{spaceafter}
 		\tableentry{Intermediate}{Selenium, Flask, Django}{spaceafter}
-		\tableentry{Intermediate}{Latex}{spaceafter}
 		\tableentry{Expert}{Git}{spaceafter}
-		\tableentry{Expert}{Linux}{spaceafter}
 		\tableentry{Expert}{JavaScript}{spaceafter}
 	\end{supertabular}
-	
+
 	%----------------------------------------------------------------------------------------
 	\pagebreak
 	\section{Projects}
-	
-	\subsection{\href{https://github.com/arashatt/wifi-scan}{ESP32 WiFi Scanning – Rust}}
+
+	\subsection{\href{https://github.com/arashatt/rssh}{SSH Management Tool -- Systems Programming with Rust}}
+	A secure and highly performant command-line server management tool utilizing \textbf{Rust}'s system-level control and memory safety features. Currently used by the internal Support team of \href{https://limoo.host}{Limoo Host} to manage SSH configurations defined in \texttt{~/.ssh/config}. Replaced a former tool, eliminating a \textbf{four-second latency} when accessing servers.
+
+	\subsection{\href{https://github.com/arashatt/curltrace}{curltrace -- Python BPFtrace}}
+	A production-grade BPFtrace tool used by the Limoo Host T.O.C. team to monitor outgoing \texttt{curl} requests on over 60,000 WordPress sites. Aids in debugging network and security issues.
+
+	\subsection{\href{https://github.com/arashatt/wifi-scan}{ESP32 WiFi Scanning -- Rust}}
 	A lightweight web server that displays nearby WiFi signals on a single webpage. Designed for the ESP32 microcontroller and implemented in Rust.
 
-\subsection{\href{https://github.com/arashatt/rssh}{SSH Management Tool – Systems Programming with Rust}}
-A secure and highly performant command-line and server management tool utilizing \textbf{Rust}'s system-level control and memory safety features. This project is currently used by the internal Support team of \href{https://limoo.host}{Limoo Host} to manage SSH configurations defined in \texttt{~/.ssh/config}. The new tool replaced a former one, bringing the significant advantage of \textbf { eliminating a four-second latency }when accessing servers.
-
-	
-	\subsection{\href{https://github.com/arashatt/digikala-scan}{Digikala Web Scraper – Node.js}}
+	\subsection{\href{https://github.com/arashatt/digikala-scan}{Digikala Web Scraper -- Node.js}}
 	A data extraction tool built with Node.js and Puppeteer to collect product information from digikala.com.
-	
-	\subsection{\href{https://github.com/arashatt/cat}{Cat Mimic – C}}
+
+	\subsection{\href{https://github.com/arashatt/cat}{Cat Mimic -- C}}
 	A file-reading utility inspired by the Unix \texttt{cat} command. It reads files in manageable chunks to handle large datasets without memory issues.
-	
-	\subsection{\href{https://github.com/arashatt/typsy}{typeset.live – React WebAssembly}}
-	I created this web application to assist students with document preparation. It features a \textbf{live editor} with \textbf{real-time preview capabilities}, enabling quick edits and reliable output saving directly to \textbf{PDF format}.
-	
-	
-	\subsection{\href{https://github.com/arashatt/curltrace}{curltrace – Python BPFtrace}}
-	A production-grade BPFtrace tool used by the LimooHost T.O.C team to monitor outgoing \texttt{curl} requests on over 60,000 WordPress sites. Aids in debugging network and security issues.
-	
-	\subsection{\href{https://github.com/arashatt/tourism-nextjs}{Tourism App – Next.js}}
+
+	\subsection{\href{https://github.com/arashatt/typsy}{typeset.live -- React WebAssembly}}
+	A web application to assist students with document preparation, featuring a \textbf{live editor} with \textbf{real-time preview capabilities}, enabling quick edits and reliable output saving directly to \textbf{PDF format}.
+
+	\subsection{\href{https://github.com/arashatt/tourism-nextjs}{Tourism App -- Next.js}}
 	\begin{itemize}
 		\item Developed a full-stack tourism web application using Next.js and Prisma.
 		\item Implemented dynamic city and tour listings with booking workflows.
 		\item Utilized TypeScript and Tailwind CSS for type safety and responsive design.
 	\end{itemize}
-	
-	\subsection{\href{https://github.com/arashatt/Dictionary-maker}{Dictionary Maker – Python}}
-	Inspired by reading James Joyce’s *Ulysses*, this program generates glossaries from lists of vocabulary items. A Persian description and examples are provided in the repository.
-	
-	\subsection{\href{https://github.com/arashatt/my-vocab-list}{My Vocab List – Java GUI}}
+
+	\subsection{\href{https://github.com/arashatt/Dictionary-maker}{Dictionary Maker -- Python}}
+	Inspired by reading James Joyce's \textit{Ulysses}, this program generates glossaries from lists of vocabulary items. A Persian description and examples are provided in the repository.
+
+	\subsection{\href{https://github.com/arashatt/my-vocab-list}{My Vocab List -- Java GUI}}
 	A desktop application for storing and organizing vocabulary lists, providing direct links to definitions in online dictionaries.
-	
-	\subsection{\href{https://github.com/arashatt/retrieval-system}{Information Retrieval System – Python}}
-	A document indexing and search system implementing the TF–IDF algorithm for efficient text retrieval and ranking.
-	
+
+	\subsection{\href{https://github.com/arashatt/retrieval-system}{Information Retrieval System -- Python}}
+	A document indexing and search system implementing the TF--IDF algorithm for efficient text retrieval and ranking.
+
 	%----------------------------------------------------------------------------------------
 	\section{Skills}
-	
-	\subsection{Certificates}
-	VITTCO Teaching Certificate, Safir Language Academy.
-	
+
 	\subsection{Git}
-	Experienced in the full Git lifecycle, managing codebases from initialization to deployment. My expertise includes advanced commands for \textbf{branching, merging, rebasing, and conflict resolution}, alongside the practical application of Git Flow/GitHub Flow strategies. I use \href{https://github.com/arashatt}{\textbf{GitHub}} as the primary platform for collaboration, code review, and maintaining a transparent record of all feature development and bug fixes.
-	
-	
+	Experienced in the full Git lifecycle, managing codebases from initialization to deployment. Expertise includes advanced commands for \textbf{branching, merging, rebasing, and conflict resolution}, alongside the practical application of Git Flow/GitHub Flow strategies. Uses \href{https://github.com/arashatt}{\textbf{GitHub}} as the primary platform for collaboration, code review, and maintaining a transparent record of all feature development and bug fixes.
+
+
 	\subsection{Django}
 	Developed multiple projects using the Django web framework.
 	\begin{itemize}
@@ -210,12 +194,12 @@ A secure and highly performant command-line and server management tool utilizing
 		\item Skilled in Django ORM, custom user models, and template design.
 		\item Deployed a Django project on \href{https://liara.ir/}{Liara}.
 	\end{itemize}
-	
+
 	\subsection{Docker}
-	Gained proficiency in Docker and Docker Compose during the Bachelor’s final project. Familiar with containerizing single and multi-service applications.
-	
+	Gained proficiency in Docker and Docker Compose during the Bachelor's final project. Familiar with containerizing single and multi-service applications.
+
 	\subsection{Information Retrieval}
-	Implemented an IR system using the TF–IDF algorithm during academic research. Knowledgeable in data mining and information retrieval techniques.
-	
-	
+	Implemented an IR system using the TF--IDF algorithm during academic research. Knowledgeable in data mining and information retrieval techniques.
+
+
 \end{document}
