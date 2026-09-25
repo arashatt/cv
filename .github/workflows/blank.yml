@@ -7,32 +7,42 @@ on:
       - main # Run when changes are pushed to the 'main' branch
   workflow_dispatch: # Allows manual triggering from the GitHub UI
 
+# A newer push makes an in-progress build obsolete, so cancel it
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build_pdf:
     runs-on: ubuntu-latest
     # Add permissions block to grant the GITHUB_TOKEN the ability to write contents (for releases)
     permissions:
-      contents: write 
-      
+      contents: write
+
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v4
 
-    # Use a pre-built Docker container that has a full TeX Live distribution
-    # This ensures XeLaTeX and necessary packages (fontspec, babel) are available.
-    - name: Compile LaTeX Document (Using XeLaTeX)
-      uses: xu-cheng/latex-action@v2
+    # Install only the TeX Live packages this CV needs, instead of pulling a
+    # multi-GB full TeX Live Docker image on every run. The installation is
+    # cached, so later runs restore it in seconds.
+    - name: Install TeX Live
+      uses: zauguin/install-texlive@v4
       with:
-        root_file: Arash Attari.tex
-        compiler: xelatex
+        packages: >
+          scheme-basic xetex latexmk lm zapfding
+          etoolbox extsizes fancyhdr fontspec geometry graphics hyperref
+          paracol pgf supertabular titlesec tools url xcolor
+
+    - name: Compile LaTeX Document (Using XeLaTeX)
+      run: latexmk -xelatex -interaction=nonstopmode -halt-on-error "Arash Attari.tex"
 
     - name: Upload PDF Artifact
       uses: actions/upload-artifact@v4
       with:
         name: typeset-document-pdf
         path: Arash Attari.pdf
-        
+
     - name: Create Release
       uses: softprops/action-gh-release@v2
       if: startsWith(github.ref, 'refs/heads/main') # Only create release on main branch pushes
