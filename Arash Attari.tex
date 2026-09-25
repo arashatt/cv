@@ -136,7 +136,9 @@
 
 	\section{Computer Skills}
 
-	\begin{supertabular}{r l}
+	% Plain tabular: this short table never needs to split across pages, and supertabular
+	% leaves an empty page behind when it ends near the bottom of a page
+	\noindent\begin{tabular}{r l}
 		\tableentry{Expert}{cPanel/WHM \& DirectAdmin Administration}{spaceafter}
 		\tableentry{Expert}{Linux (SSH, CLI, log \& config troubleshooting)}{spaceafter}
 		\tableentry{Advanced}{LiteSpeed, Apache, Nginx, PHP-FPM}{spaceafter}
@@ -147,7 +149,7 @@
 		\tableentry{Intermediate}{Selenium, Flask, Django}{spaceafter}
 		\tableentry{Expert}{Git}{spaceafter}
 		\tableentry{Expert}{JavaScript}{spaceafter}
-	\end{supertabular}
+	\end{tabular}
 
 	%----------------------------------------------------------------------------------------
 	\pagebreak
